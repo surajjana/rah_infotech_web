@@ -1,0 +1,22 @@
+{
+	'name': '',
+	'email': '',
+	'msg': '',
+	'time_stamp': '',
+	'status':[
+		{
+			'status':'',
+			'time_stamp':''
+		}
+	]
+}
+
+
+Dash
+----
+
+* login
+* dash
+* add media/press
+* add event
+* tickets list
