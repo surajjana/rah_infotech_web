@@ -27,7 +27,7 @@ h4{
 	text-transform: uppercase;
 }
 h5{
-	text-transform: uppercase;
+	/*text-transform: uppercase;*/
 	font-weight: 700;
 	line-height: 20px;
 }

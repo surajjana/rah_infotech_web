@@ -69,6 +69,25 @@
         })
     </script>
 
+    <style type="text/css">
+
+        .iframe-container{ 
+            position: relative; 
+            width: 100%; 
+            padding-bottom: 56.25%; 
+            height: 0; 
+        } 
+
+        .iframe-container iframe{ 
+            position: absolute; 
+            top:0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+        }
+
+    </style>
+
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -104,7 +123,7 @@
             <li><a href="#tf-works" class="page-scroll">Products</a></li>
             <li><a href="/services" class="page-scroll">Services</a></li>
             <li><a href="/support" class="page-scroll">Support</a></li>
-            <li><a href="#" class="page-scroll">Blog</a></li>
+            <li><a href="https://rahinfotech.wordpress.com/" class="page-scroll">Blog</a></li>
             <li><a href="#tf-contact" class="page-scroll">Contact Us</a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
@@ -117,7 +136,7 @@
         <div class="overlay">
             <div class="content wow fadeIn" data-wow-duration="3s">
                 <h1>Welcome to <strong><span class="color">RAH Infotech</span></strong></h1>
-                <p class="lead">We are <strong>connecting</strong> and <strong>securing</strong> your world</p>
+                <p class="lead"><strong>CONNECTING</strong> AND <strong>SECURING</strong> YOUR WORLD</p>
                 <a href="#tf-about" class="fa fa-angle-down page-scroll"></a>
             </div>
         </div>
@@ -130,7 +149,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <!-- <img src="img/02.png" class="img-responsive"> -->
-                    <div id="about" class="owl-carousel owl-theme">
+                    <!-- <div id="about" class="owl-carousel owl-theme">
                     <div class="">
                         <img src="img/customers.png">
                     </div>
@@ -138,6 +157,9 @@
                         <img src="img/customers.png">
                     </div>
                     
+                    </div> -->
+                    <div class="iframe-container">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/BAekHNAVbRg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -148,11 +170,15 @@
                             <hr>
                             <div class="clearfix"></div>
                         </div>
-                        <p class="intro">RAH Infotech is India’s leading value added distributor and solutions provider in the Network and Security domain. We are specialists in Enterprise and App Security and Application Delivery. Our company is one of India’s fastest growing IT value added distribution (VAD) companies that has been introducing cutting-edge technologies to the market ever since its inception in 2005.</p>
-                        <p class="intro">We constantly study the IT industry trends and keep an eye on solutions that fit market niches. We review the products strengths and market standing before introducing them to the market. </p>
+                        <p class="intro">RAH Infotech was established in 2005 with a focus on providing state-of-the-art technology
+solutions in association with Global IT leaders. In over a decade of its operations, RAH Infotech has
+been consistently providing world class IT solutions to a large number of channel partners and
+corporates in India and SAARC countries. Headquartered in Gurgoan, RAH Infotech has presence
+across the country with International presence in Netherlands, Singapore, UAE, UK and USA.
+</p>
                         <br>
                         <a href="/events" style="color: #fff; text-decoration: none;"><button class="btn btn-primary">Events</button></a>
-                        <a href="/media" style="color: #fff; text-decoration: none;"><button class="btn btn-primary">Media</button></a>
+                        <a href="/media" style="color: #fff; text-decoration: none;"><button class="btn btn-primary">Press</button></a>
 
                     </div>
                 </div>
@@ -231,33 +257,33 @@
             <div class="space"></div>
             <div class="row">
                 <div class="col-md-4 col-sm-6 service wow fadeInUp" data-wow-duration="2s" style="margin-top: 15px;">
-                    <i class="fa fa-wifi"></i>
-                    <h4><strong>Wireless/Wifi</strong></h4>
-                    <p>The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
-                    <a href="/solution?sol_id=1" style="color: #fff; text-decoration: none;"><button class="btn btn-primary">Read More</button></a>
-                </div>
-
-                <div class="col-md-4 col-sm-6 service wow fadeInUp" data-wow-duration="2s" style="margin-top: 15px;">
-                    <i class="fa fa-cloud"></i>
-                    <h4><strong>Cloud Computing/Virtualization</strong></h4>
-                    <p>The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
-                    <a href="/solution?sol_id=2" style="color: #fff; text-decoration: none;"><button class="btn btn-primary">Read More</button></a>
-                </div>
-
-                <div class="col-md-4 col-sm-6 service wow fadeInUp" data-wow-duration="2s" style="margin-top: 15px;">
                     <i class="fa fa-shield"></i>
                     <h4><strong>Information Security</strong></h4>
                     <p>The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
                     <a href="/solution?sol_id=3" style="color: #fff; text-decoration: none;"><button class="btn btn-primary">Read More</button></a>
                 </div>
 
-                <div class="col-md-2" style="margin-top: 15px;"></div>
-
-                <div class="col-md-4 col-sm-6 service wow fadeInUp" data-wow-duration="2s" data-wow-delay="1s" style="margin-top: 15px;">
+                <div class="col-md-4 col-sm-6 service wow fadeInUp" data-wow-duration="2s" style="margin-top: 15px;">
                     <i class="fa fa-sitemap"></i>
                     <h4><strong>Networking</strong></h4>
                     <p>The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
                     <a href="/solution?sol_id=4" style="color: #fff; text-decoration: none;"><button class="btn btn-primary">Read More</button></a>
+                </div>
+
+                <div class="col-md-4 col-sm-6 service wow fadeInUp" data-wow-duration="2s" style="margin-top: 15px;">
+                    <i class="fa fa-wifi"></i>
+                    <h4><strong>Wireless/Wifi</strong></h4>
+                    <p>The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
+                    <a href="/solution?sol_id=1" style="color: #fff; text-decoration: none;"><button class="btn btn-primary">Read More</button></a>
+                </div>            
+
+                <div class="col-md-2" style="margin-top: 15px;"></div>
+
+                <div class="col-md-4 col-sm-6 service wow fadeInUp" data-wow-duration="2s" data-wow-delay="1s" style="margin-top: 15px;">
+                    <i class="fa fa-cloud"></i>
+                    <h4><strong>Cloud Computing/Virtualization</strong></h4>
+                    <p>The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
+                    <a href="/solution?sol_id=2" style="color: #fff; text-decoration: none;"><button class="btn btn-primary">Read More</button></a>
                 </div>
 
                 <div class="col-md-4 col-sm-6 service wow fadeInUp" data-wow-duration="2s" data-wow-delay="1s" style="margin-top: 15px;">
@@ -456,15 +482,6 @@
                                 <p><strong>Nikhil Pawar</strong>, Director Krithva Computers</p>
                             </div>
 
-                            <div class="item">
-                                <h5>This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</h5>
-                                <p><strong>Dean Martin</strong>, CEO Acme Inc.</p>
-                            </div>
-
-                            <div class="item">
-                                <h5>This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</h5>
-                                <p><strong>Dean Martin</strong>, CEO Acme Inc.</p>
-                            </div>
                         </div>
                     </div>
                 </div>
