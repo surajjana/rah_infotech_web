@@ -79,8 +79,9 @@
             <li><a href="/#tf-works" class="page-scroll">Products</a></li>
             <li><a href="/services" class="page-scroll">Services</a></li>
             <li><a href="/support" class="page-scroll">Support</a></li>
-            <li><a href="#" class="page-scroll">Blog</a></li>
-            <li><a href="/#tf-contact" class="page-scroll">Contact Us</a></li>
+            <li><a href="https://rahinfotech.wordpress.com/" class="page-scroll">Blog</a></li>
+            <!-- <li><a href="/#tf-contact" class="page-scroll">Contact Us</a></li> -->
+            <li><a href="http://www.rahinfotech.com/contact-us.php" class="page-scroll">Contact Us</a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
@@ -110,6 +111,20 @@
                             <div class="clearfix"></div>
                         </div>
                         <p class="intro">{{data['data']}}</p>
+
+                        <br>
+
+                        <h3>Products</h3>
+
+                        <div class="row text-center">
+                            % for item in data['products']:
+                                <div class="col-md-3">
+                                    <img src="img/new_partners/{{item}}" style="width: 80%">
+                                </div>
+                            % end
+                            
+                            
+                        </div>
                         
                     </div>
                 </div>

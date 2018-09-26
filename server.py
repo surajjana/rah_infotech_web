@@ -61,8 +61,23 @@ def solution():
 
     sol_id = int(request.GET.get('sol_id'))
 
+    products = []
+
     cur = db.solutions.find({'s_id': sol_id})
     data = json.loads(dumps(cur))
+
+    if(sol_id == 1):
+        products = ['cambium.png','mikrotik.png']
+    elif(sol_id == 2):
+        products = ['gemalto.png', 'radware.png']
+    elif(sol_id == 3):
+        products = ['forescout.png', 'fsecure.png', 'gemalto.png', 'infoblox.png', 'ipswitch.png', 'ixia.png', 'radware.png', 'rapid7.png', 'seclore.png']
+    elif(sol_id == 4):
+        products = ['exinda.png', 'fatpipe.png', 'kemp.png']
+    elif(sol_id == 5):
+        products = ['acronis.png', 'actifio.png', 'quest.png', 'sanovi.png']
+
+    data[0]['products'] = products
 
     return template('templates/solution.tpl', data=data[0])
 
