@@ -71,7 +71,7 @@ def solution():
     elif(sol_id == 2):
         products = ['gemalto.png', 'radware.png']
     elif(sol_id == 3):
-        products = ['forescout.png', 'fsecure.png', 'gemalto.png', 'infoblox.png', 'ipswitch.png', 'ixia.png', 'radware.png', 'rapid7.png', 'seclore.png']
+        products = ['forescout.png', 'fsecure.png', 'gemalto.png', 'infoblox.png', 'ipswitch.png', 'ixia.png', 'radware.png', 'rapid7.png', 'seclore.png', 'skybox.png', 'innefu.png']
     elif(sol_id == 4):
         products = ['exinda.png', 'fatpipe.png', 'kemp.png']
     elif(sol_id == 5):
