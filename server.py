@@ -91,6 +91,13 @@ def product():
     # return "Ok"
     return static_file('product.html', root='templates/')
 
+@app.get('/p')
+def product_info():
+
+    product_name = request.GET.get('n').lower()
+
+    return static_file(product_name+'.html', root='templates/products/')    
+
 @app.get('/media')
 def media():
     # return "Ok"

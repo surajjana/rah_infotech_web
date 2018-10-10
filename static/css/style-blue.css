@@ -117,7 +117,7 @@ font-weight: 900;
 	}
 /* Home Style */
 #tf-home{
-	background: url(../img/small.gif);
+	background: url(../img/test.png);
 	background-size: cover;
 	background-position: center;
 	background-attachment: fixed;
@@ -177,12 +177,12 @@ font-weight: 900;
 
 .content{
 	position: relative;
-	padding: 20% 0 0;
+	padding: 15% 0 0;
 }
 
 .color{
 	/*color: #0d8dd7;*/
-	color: #0d8dd7;
+	color: #308f4d;
 }
 
 a.fa.fa-angle-down {
