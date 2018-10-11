@@ -72,9 +72,11 @@ function main() {
   	  $("#clients").owlCarousel({
   	 
   	      navigation : false, // Show next and prev buttons
-  	      slideSpeed : 300,
-  	      paginationSpeed : 400,
+  	      slideSpeed : 100,
+  	      paginationSpeed : 200,
   	      autoHeight : true,
+          autoPlay : true,
+          goToFirst : true,
   	      itemsCustom : [
 				        [0, 1],
 				        [450, 2],
