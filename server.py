@@ -67,15 +67,15 @@ def solution():
     data = json.loads(dumps(cur))
 
     if(sol_id == 1):
-        products = ['cambium.png','mikrotik.png']
+        products = ['cambium','mikrotik']
     elif(sol_id == 2):
-        products = ['gemalto.png', 'radware.png']
+        products = ['gemalto', 'radware']
     elif(sol_id == 3):
-        products = ['forescout.png', 'fsecure.png', 'gemalto.png', 'infoblox.png', 'ipswitch.png', 'ixia.png', 'radware.png', 'rapid7.png', 'seclore.png', 'skybox.png', 'innefu.png']
+        products = ['forescout', 'fsecure', 'gemalto', 'infoblox', 'ipswitch', 'ixia', 'radware', 'rapid7', 'seclore', 'skybox', 'innefu']
     elif(sol_id == 4):
-        products = ['exinda.png', 'fatpipe.png', 'kemp.png']
+        products = ['exinda', 'fatpipe', 'kemp', 'cambium','mikrotik']
     elif(sol_id == 5):
-        products = ['acronis.png', 'actifio.png', 'quest.png', 'sanovi.png']
+        products = ['acronis', 'actifio', 'quest', 'sanovi']
 
     data[0]['products'] = products
 

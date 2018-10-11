@@ -118,8 +118,15 @@
 
                         <div class="row text-center">
                             % for item in data['products']:
-                                <div class="col-md-3">
+                                <!-- <div class="col-md-3">
                                     <img src="img/new_partners/{{item}}" style="width: 80%">
+                                </div> -->
+                                <div class="col-md-2 text-center" style="margin-top: 15px;">
+                                    <a href="/p?n={{item}}">
+                                        <div style="background-color: #fff; width: 100%; border-radius: 7px; box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);">
+                                            <img src="img/new_partners/{{item}}.png" style="width: 80%;">
+                                        </div>  
+                                    </a>                  
                                 </div>
                             % end
                             
