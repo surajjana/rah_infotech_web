@@ -45,6 +45,10 @@ def fonts(filename):
 def javascripts(filename):
     return static_file(filename, root='static')
 
+@app.route('/<filename:re:.*\.pdf>')
+def pdfs(filename):
+    return static_file(filename, root='static')
+
 @app.hook('after_request')
 def enable_cors():
 	response.headers['Access-Control-Allow-Origin'] = '*'
