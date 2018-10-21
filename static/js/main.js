@@ -69,14 +69,13 @@ function main() {
         singleItem:true
         });
 
-  	  /*$("#clients").owlCarousel({
+  	  $("#clients").owlCarousel({
   	 
   	      navigation : false, // Show next and prev buttons
-  	      slideSpeed : 100,
-  	      paginationSpeed : 200,
-  	      autoHeight : true,
-          autoPlay : true,
-          goToFirst : true,
+  	      loop:true,
+          autoplay:true,
+          autoplayTimeout:1000,
+          autoplayHoverPause:true,
   	      itemsCustom : [
 				        [0, 1],
 				        [450, 2],
@@ -87,16 +86,16 @@ function main() {
 				        [1400, 5],
 				        [1600, 5]
 				      ],
-  	  });*/
+  	  });
 
-      $("#clients").owlCarousel({
+      /*$("#clients").owlCarousel({
           items:5,
           loop:true,
           margin:10,
           autoplay:true,
           autoplayTimeout:1000,
           autoplayHoverPause:true
-      });
+      });*/
 
       /*$("#testimonial").owlCarousel({
         navigation : false, // Show next and prev buttons
