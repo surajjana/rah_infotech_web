@@ -42,6 +42,12 @@
       new WOW().init();
     </script>
 
+    <script type='text/javascript'>
+
+    (function(I, _, T, i, c, k, s) {if(I.iticks) return;I.iticks = {host:c, settings:s, clientId:k, cdn:_, queue:[]};var h = T.head || T.documentElement;var e = T.createElement(i);var l = I.location;e.async = true;e.src = (_||c)+'/client/inject.min.js';h.insertBefore(e, h.firstChild);I.iticks.call = function(a, b) {I.iticks.queue.push([a, b]);};})(window, 'https://d25ok8ck9cwr91.cloudfront.net', document, 'script', 'https://app.intelliticks.com', 'TjdrDwQkSFuFu2zJa_c', {});
+
+    </script>
+
     <script type="text/javascript" src="js/modernizr.custom.js"></script>
 
 
