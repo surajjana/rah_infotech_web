@@ -105,14 +105,20 @@ def product_info():
 @app.get('/media')
 def media():
     # return "Ok"
-    cur = db.media_coverage.find()
-    data = json.loads(dumps(cur))
+    # cur = db.media_coverage.find()
+    # data = json.loads(dumps(cur))
 
-    temp_data = data
+    # temp_data = data
 
-    temp_data.reverse()
+    # temp_data.reverse()
 
-    return template('templates/media.tpl', basket=data)
+    # return template('templates/media.tpl', basket=data)
+
+    return static_file('media_new.html', root='templates')
+
+@app.get('/ewaste')
+def ewaste():
+    return  static_file('ewaste.html', root='templates')
 
 @app.get('/events')
 def events():
