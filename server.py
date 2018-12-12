@@ -49,6 +49,10 @@ def javascripts(filename):
 def pdfs(filename):
     return static_file(filename, root='static')
 
+@app.route('/<filename:re:.*\.json>')
+def javascripts(filename):
+    return static_file(filename, root='static')
+
 @app.hook('after_request')
 def enable_cors():
 	response.headers['Access-Control-Allow-Origin'] = '*'
@@ -220,4 +224,132 @@ def get_tickets():
 
     return template('templates/get_tickets.tpl', basket=data)
 
-# 8667001004, 
+
+@app.route('/sign_s3')
+def sign_s3():
+    S3_BUCKET = 'ocl-rah-test'
+
+    file_name = request.GET.get('file_name') + '-' + uuid.uuid4().hex
+    file_type = request.GET.get('file_type')
+    folder_name = 'files'
+
+    s3 = boto3.client('s3', region_name='us-east-1', aws_access_key_id='AKIAJLBLWD5BVQNXJP2Q', aws_secret_access_key='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')
+
+    presigned_post = s3.generate_presigned_post(
+        Bucket = S3_BUCKET,
+        Key = folder_name+'/'+file_name,
+        Fields = {"acl": "public-read", "Content-Type": file_type},
+        Conditions = [
+          {"acl": "public-read"},
+          {"Content-Type": file_type}
+        ],
+        ExpiresIn = 3600
+    )
+
+    # print presigned_post
+
+    return json.dumps({
+    'data': presigned_post,
+    'url': 'https://%s.s3.amazonaws.com/%s' % (S3_BUCKET, folder_name+'/'+file_name)
+    })
+
+
+@app.post('/add_user')
+def add_user():
+    name = request.forms.get('name')
+    email = request.forms.get('email').lower()
+    pwd = request.forms.get('pwd')
+
+    cur = db.emp.find({'email': email})
+    data = json.loads(dumps(cur))
+
+    if(len(data) != 0):
+        return {'response': 'User Exists'}
+    else:
+        cur = db.emp.insert({'name': name, 'email': email, 'pwd': pwd, 'time_stamp': time.time()})
+
+        redirect('/manage_users')
+
+@app.get('/manage_users')
+def manage_users():
+    cur = db.emp.find()
+    data = json.loads(dumps(cur))
+
+    return template('templates/manage_users.tpl', res=data)
+
+@app.get('/edit_user')
+def edit_user():
+    cur = db.emp.find({'_id': ObjectId(request.GET.get('id'))})
+    data = json.loads(dumps(cur))
+
+    if(len(data) == 0):
+        return {'response': 'User Not Existing'}
+    else:
+        return template('templates/edit_user.tpl', data[0])
+
+@app.post('/edit_user')
+def edit_user():
+    name = request.forms.get('name')
+    email = request.forms.get('email').lower()
+    pwd = request.forms.get('pwd')
+    oid = request.forms.get('id')
+
+    cur = db.emp.find({'_id': ObjectId(oid)})
+    data = json.loads(dumps(cur))
+
+    if(len(data) == 0):
+        return {'response': 'User Not Existing'}
+    else:
+        if(len(pwd) != 0):
+            cur = db.emp.update({'_id': ObjectId(oid)}, {'$set': {'name': name, 'email': email, 'pwd': pwd, 'time_stamp': time.time()}})
+        else:
+            cur = db.emp.update({'_id': ObjectId(oid)}, {'$set': {'name': name, 'email': email, 'time_stamp': time.time()}})
+
+        redirect('/manage_users')
+
+@app.get('/delete_user')
+def delete_user():
+    cur = db.emp.remove({'_id': ObjectId(request.GET.get('id'))})
+
+    redirect('/manage_users')
+
+
+@app.get('/manage_files')
+def manage_files():
+    cur = db.files.find().sort('$natural', pymongo.DESCENDING)
+    data = json.loads(dumps(cur))
+
+    return template('templates/manage_files.tpl', res=data)
+
+@app.get('/upload_file')
+def upload_file():
+    link = request.GET.get('link')
+    name = request.GET.get('name')
+
+    cur = db.files.insert({'name': name, 'link': link, 'time_stamp': time.time()})
+
+    return {'status': 'OK'}
+
+@app.get('/delete_file')
+def delete_file():
+    cur = db.files.remove({'_id': ObjectId(request.GET.get('id'))})
+
+    redirect('/manage_files')
+
+@app.get('/create_msg')
+def create_msg():
+
+    res = {'names': '', 'files': ''}
+
+    cur = db.emp.find({},{'_id': 1, 'name': 1})
+    data = json.loads(dumps(cur))
+
+    res['names'] = data
+
+    cur = db.files.find({},{'_id': 1, 'name': 1})
+    data = json.loads(dumps(cur))
+
+    res['files'] = data
+
+    return template('templates/new_test.tpl', res)
+# 8667001004,

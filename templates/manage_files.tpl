@@ -94,6 +94,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
+            <li><a href="/dash" class="page-scroll">Dash Home</a></li>
             <li><a href="/events" class="page-scroll">Events</a></li>
             <li><a href="/media" class="page-scroll">Media</a></li>
             <li><a href="/login" class="page-scroll">Logout</a></li>
@@ -105,48 +106,54 @@
     </nav>
 
 
-    <div id="tf-services" class="text-center">
+    <div id="product-about">
         <div class="container">
-            <div class="section-title center">
-                <h2>Admin <strong>Dashboard</strong></h2>
-                <div class="line">
-                    <!-- <hr> -->
-                </div>
-                <div class="clearfix"></div>
-                <!-- <small><em>Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</em></small> -->
-            </div>
-            <div class="space"></div>
             <div class="row">
-                <div class="col-md-4 col-sm-6 service wow fadeInUp" data-wow-duration="2s" style="margin-top: 15px;">
-                    <i class="fa fa-calendar"></i>
-                    <h4><strong>Add Event</strong></h4>
-                    <a href="/add_event" style="color: #fff; text-decoration: none;"><button class="btn btn-primary">Proceed</button></a>
-                </div>
+                <div class="col-md-12">
+                    
+                    <div class="section-title center">
+                        <center><h2>Manage <strong>Files</strong></h2></center>
+                        <div class="line">
+                            <!-- <hr> -->
+                        </div>
+                        <div class="clearfix"></div>
 
-                <div class="col-md-4 col-sm-6 service wow fadeInUp" data-wow-duration="2s" style="margin-top: 15px;">
-                    <i class="fa fa-newspaper-o"></i>
-                    <h4><strong>Add Media/Press</strong></h4>
-                    <a href="/add_media" style="color: #fff; text-decoration: none;"><button class="btn btn-primary">Proceed</button></a>
-                </div>
+                        <div class="row text-center">
+                            
+                            <div class="col-md-12" style="margin-top: 15px;">
+                                <table class="table table-striped">
+                                    <thead>
+                                      <tr>
+                                        <th>Name</th>
+                                        <th>Uploaded On</th>
+                                        <th>View</th>
+                                        <th>Delete</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                        % for file in res:
+                                            <tr>
+                                                <td>{{file['name']}}</td>
+                                                <td>{{file['time_stamp']}}</td>
+                                                <td><a target="_blank" href="{{file['link']}}">View</a></td>
+                                                <td><a href="/delete_file?id={{file['_id']['$oid']}}">Delete</a></td>
+                                            </tr>
+                                        % end
+                                    </tbody>
+                                </table>
+                            </div>
 
-                <div class="col-md-4 col-sm-6 service wow fadeInUp" data-wow-duration="2s" style="margin-top: 15px;">
-                    <i class="fa fa-ticket"></i>
-                    <h4><strong>Support Tickets</strong></h4>
-                    <a href="/get_tickets" style="color: #fff; text-decoration: none;"><button class="btn btn-primary">Proceed</button></a>
-                </div>
+                            <div class="col-md-12" style="margin-top: 15px;">
+                                <a href="/add_file">
+                                    <button class="btn btn-primary"><i class="fa fa-plus"></i> Add File</button>
+                                </a>
+                            </div>
 
-                <div class="col-md-4 col-sm-6 col-md-offset-2 service wow fadeInUp" data-wow-duration="2s" style="margin-top: 15px;">
-                    <i class="fa fa-file"></i>
-                    <h4><strong>Manage Files</strong></h4>
-                    <a href="/manage_files" style="color: #fff; text-decoration: none;"><button class="btn btn-primary">Proceed</button></a>
+                        </div>
+                                   
+                    </div>
+                       
                 </div>
-
-                <div class="col-md-4 col-sm-6 service wow fadeInUp" data-wow-duration="2s" style="margin-top: 15px;">
-                    <i class="fa fa-group"></i>
-                    <h4><strong>Manage Users</strong></h4>
-                    <a href="/manage_users" style="color: #fff; text-decoration: none;"><button class="btn btn-primary">Proceed</button></a>
-                </div>
-
             </div>
         </div>
     </div>

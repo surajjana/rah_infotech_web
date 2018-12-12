@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <!-- Basic Page Needs
+<html>
+<head>
+	<title>Test</title>
+
+	<!-- Basic Page Needs
     ================================================== -->
     <meta charset="utf-8">
     <!--[if IE]><meta http-equiv="x-ua-compatible" content="IE=9" /><![endif]-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>RAH Infotech | Login</title>
+    <title>RAH Infotech | Create Message</title>
     <meta name="description" content="">
     <meta name="keywords" content="">
     <meta name="author" content="">
@@ -36,6 +38,7 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,700,300,600,800,400' rel='stylesheet' type='text/css'>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
 
     <script>
@@ -46,37 +49,20 @@
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script type="text/javascript" src="js/jquery.1.11.1.js"></script>
+    <script src="//code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 
-    <script type="text/javascript">
-        $(document).ready(function(){
-            $('#sub-btn').click(function(){
-                var username = document.getElementById('username').value;
-                var pwd = document.getElementById('pwd').value;
-                
-                $('#err-msg').css('display', 'none')
+	<link rel="stylesheet" type="text/css"  href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/tokenize2.css">
 
-                if(username == 'admin' && pwd == 'start@123'){
-                    window.location = '/dash'
-                }else{
-                    $('#err-msg').css('display', 'block')
-                }
-            })
-        })
-    </script>
+	<script src="//code.jquery.com/jquery.min.js"></script>
+	<script src="js/tokenize2.js"></script>
+	<script src="//code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 
+	
+</head>
+<body>
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <!-- Navigation
-    ==========================================-->
-    <nav id="tf-menu" class="navbar navbar-default navbar-fixed-top on">
+	<nav id="tf-menu" class="navbar navbar-default navbar-fixed-top on">
       <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -91,41 +77,90 @@
           </a>
         </div>
 
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/dash" class="page-scroll">Dash Home</a></li>
+            <li><a href="/events" class="page-scroll">Events</a></li>
+            <li><a href="/media" class="page-scroll">Media</a></li>
+            <li><a href="/login" class="page-scroll">Logout</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+
         
       </div><!-- /.container-fluid -->
     </nav>
 
-    
-
-    <!-- About Us Page
-    ==========================================-->
     <div id="product-about">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     
                     <div class="section-title center">
-                        <center><h2>Dashboard <strong>Login</strong></h2></center>
+                        <center><h2>New <strong>Message</strong></h2></center>
                         <div class="line">
                             <!-- <hr> -->
                         </div>
                         <div class="clearfix"></div>
 
-                        <div class="row text-center">
-                            <div class="col-md-4"></div>
-                            <div class="col-md-4" style="padding: 25px;">
-                                <p id="err-msg" style="color: red; display: none;">Invalid credentials :(</p>
+                        <div class="row">
+                            <div class="col-md-3"></div>
+                            <div class="col-md-6" style="padding: 25px;">
+                                
+                                
                                 <div class="form-group">
-                                    <label style="font-size: 1.2em; font-weight: bold;">Username</label>
-                                    <input type="text" id="username" name="username" class="form-control" placeholder="Username">
+                                    <label style="font-size: 1.2em; font-weight: bold;">Subject</label>
+                                    <input type="text" id="subject" name="subject" class="form-control" placeholder="Subject">
                                 </div>
                                 <div class="form-group">
-                                    <label style="font-size: 1.2em; font-weight: bold;">Password</label>
-                                    <input type="password" id="pwd" name="pwd" class="form-control" placeholder="********">
+					              <label for="msg">Message</label>
+					              <textarea class="form-control" rows="5" id="msg" maxlength="300">Enter message here...</textarea>
+					            </div> 
+
+                                <p style="font-size: 1.2em; font-weight: bold;">Recipients</p>
+                                <div class="form-group">
+                                	
+                                	<select class="rec" multiple>
+                                		% for emp in names:
+                                            <option value="{{emp['_id']['$oid']}}">{{emp['name']}}</option>
+                                        % end
+										<!-- <option value="suraj@sertify.me">Suraj Jana</option>
+										<option value="2">Audi</option>
+										<option value="3">BMW</option>
+										<option value="4">Cadillac</option>
+										<option value="5">Chevrolet</option>
+										<option value="6">Ferrari</option>
+										<option value="7">Ford</option>
+										<option value="8">Honda</option>
+										<option value="9">Lexus</option>
+										<option value="10">Mercedes-Benz</option> -->
+									</select>
                                 </div>
-                                <button id="sub-btn" class="btn btn-primary">Submit</button>
+
+                                <p style="font-size: 1.2em; font-weight: bold;">Files</p>
+                                <div class="form-group">
+                                	
+                                	<select class="files" multiple>
+                                		% for file in files:
+                                            <option value="{{file['_id']['$oid']}}">{{file['name']}}</option>
+                                        % end
+										<!-- <option value="suraj@sertify.me">Suraj Jana</option>
+										<option value="2">Audi</option>
+										<option value="3">BMW</option>
+										<option value="4">Cadillac</option>
+										<option value="5">Chevrolet</option>
+										<option value="6">Ferrari</option>
+										<option value="7">Ford</option>
+										<option value="8">Honda</option>
+										<option value="9">Lexus</option>
+										<option value="10">Mercedes-Benz</option> -->
+									</select>
+                                </div>
+
+                                <button id="btn" class="btn btn-primary" onclick="test_it()">Submit</button>
+                                
                             </div>
-                            <div class="col-md-4"></div>
+                            <div class="col-md-3"></div>
 
                         </div>
                                    
@@ -136,9 +171,6 @@
         </div>
     </div>
 
-    
-    
-    
 
     <nav id="footer">
         <div class="container">
@@ -159,19 +191,17 @@
     </nav>
 
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script type="text/javascript" src="js/jquery.1.11.1.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script type="text/javascript" src="js/bootstrap.js"></script>
-    <script type="text/javascript" src="js/SmoothScroll.js"></script>
-    <script type="text/javascript" src="js/jquery.isotope.js"></script>
+    
+	
 
-    <script src="js/owl.carousel.js"></script>
+	<script type="text/javascript">
+		$('.rec').tokenize2();
+		$('.files').tokenize2();
 
-    <!-- Javascripts
-    ================================================== -->
-    <script type="text/javascript" src="js/main.js"></script>
+		function test_it(){
+			console.log($('select').val())
+		}
+	</script>
 
-  </body>
+</body>
 </html>

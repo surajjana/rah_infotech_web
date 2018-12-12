@@ -60,3 +60,39 @@ Admin
 		--> Manage folders & files
 
 login --> list of notifications --> Send notification(select files/folder & users)
+
+
+data_notif
+{
+	'sender_email': '',
+	'receivers': [
+		{'email': '', 'name'}
+	],
+	'files': [
+		{'link': ''}
+	],
+	'time_stamp': ''
+}
+
+emp
+{
+	'name': '',
+	'email': '',
+	'pwd': ''
+}
+
+data_files
+{
+	'name': '',
+	'link': '',
+	'time_stamp': ''
+}
+
+Views
+-----
+
+* upload file
+* manage/list files
+* add emp
+* manage/list emp
+* update emp
