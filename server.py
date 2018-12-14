@@ -233,7 +233,7 @@ def sign_s3():
     file_type = request.GET.get('file_type')
     folder_name = 'files'
 
-    s3 = boto3.client('s3', region_name='us-east-1', aws_access_key_id='AKIAJLBLWD5BVQNXJP2Q', aws_secret_access_key='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')
+    s3 = boto3.client('s3', region_name='us-east-1', aws_access_key_id=os.environ['AWS_KEY_ID'], aws_secret_access_key=os.environ['AWS_SECRET'])
 
     presigned_post = s3.generate_presigned_post(
         Bucket = S3_BUCKET,
