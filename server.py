@@ -180,7 +180,8 @@ def add_event_post():
     if ext not in ('.png', '.jpg', '.jpeg'):
         return "File extension not allowed."
 
-    save_path = '/media/suraj/Data/dev/rah/static/img/new_events'
+    # save_path = '/media/suraj/Data/dev/rah/static/img/new_events'
+    save_path = '/home/ubuntu/rah_infotech_web/static/img/new_events'
 
     file_path = "{path}/{file}".format(path=save_path, file=image.filename)
     image.save(file_path)
