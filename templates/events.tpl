@@ -44,6 +44,17 @@
 
     <script type="text/javascript" src="js/modernizr.custom.js"></script>
 
+    <style type="text/css">
+        .row.display-flex {
+          display: flex;
+          flex-wrap: wrap;
+        }
+        .row.display-flex > [class*='col-'] {
+          display: flex;
+          flex-direction: column;
+        }
+    </style>
+
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -109,7 +120,7 @@
                             <div class="clearfix"></div>
                         </div>
 
-                        <div class="row">
+                        <div class="row display-flex">
                             % for item in basket:
                                 <div class="col-md-4 col-sm-6 wow fadeInUp" data-wow-duration="2s" style="margin-top: 15px; padding: 10px;">
 

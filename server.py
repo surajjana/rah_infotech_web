@@ -129,6 +129,8 @@ def events():
     cur = db.events.find()
     data = json.loads(dumps(cur))
 
+    data = list(reversed(data))
+
     return template('templates/events.tpl', basket=data)
 
 @app.get('/add_media')
