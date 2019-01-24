@@ -126,7 +126,8 @@ def ewaste():
 
 @app.get('/events')
 def events():
-    cur = db.events.find()
+    #cur = db.events.find()
+    cur = db.events.find().sort('sno', pymongo.DESCENDING)
     data = json.loads(dumps(cur))
 
     data = list(reversed(data))
