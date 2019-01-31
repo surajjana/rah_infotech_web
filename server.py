@@ -83,7 +83,7 @@ def solution():
     elif(sol_id == 4):
         products = ['exinda', 'fatpipe', 'kemp', 'cambium','mikrotik']
     elif(sol_id == 5):
-        products = ['acronis', 'actifio', 'quest']
+        products = ['actifio', 'quest']
 
     data[0]['products'] = products
 
