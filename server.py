@@ -79,7 +79,7 @@ def solution():
     elif(sol_id == 2):
         products = ['gemalto', 'radware']
     elif(sol_id == 3):
-        products = ['forescout', 'gemalto', 'infoblox', 'ipswitch', 'ixia', 'radware', 'rapid7', 'seclore', 'skybox', 'innefu']
+        products = ['forescout', 'gemalto', 'infoblox', 'ixia', 'radware', 'rapid7', 'seclore', 'skybox', 'innefu']
     elif(sol_id == 4):
         products = ['exinda', 'fatpipe', 'kemp', 'cambium','mikrotik']
     elif(sol_id == 5):
