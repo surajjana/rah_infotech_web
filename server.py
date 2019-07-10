@@ -15,6 +15,8 @@ import smtplib
 import boto3
 import uuid
 
+from email_functions import *
+
 app = Bottle(__name__)
 
 client = MongoClient('mongodb://rah:rah@18.212.25.180/rah')
@@ -63,6 +65,39 @@ def enable_cors():
 def root():
 	# return "Ok"
 	return static_file('index.html', root='templates/')
+
+
+############################# Govt Event #################################
+
+@app.get('/sp-summit')
+def govEvent():
+    return static_file('sp-summit.html', root='templates/')
+
+@app.post('/sp-summit')
+def govEvent():
+
+    name = request.forms.get('name')
+    email = request.forms.get('email')
+    phone = request.forms.get('phone')
+    org_name = request.forms.get('org_name')
+    org_desig = request.forms.get('org_desig')
+
+    cur = db.sp_summit.insert({'name': name, 'email': email, 'phone': phone, 'org_name': org_name, 'org_desig': org_desig, 'time_stamp': time.time()})
+
+    # print(name, email, phone, org_name, org_desig)
+    res = sendSummitEmail(name, email)
+
+    return static_file('sp-summit-ack.html', root='templates/')
+
+@app.get('/sp-summit-dash')
+def govEventDash():
+    cur = db.sp_summit.find()
+    data = json.loads(dumps(cur))
+
+    return template('templates/sp-summit-dash.tpl', {'data': data})
+    # return {'data': data}
+
+##########################################################################
 
 @app.get('/solution')
 def solution():
